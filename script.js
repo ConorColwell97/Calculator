@@ -1,26 +1,52 @@
-let a;
-let b;
-let sign;
-
 const digit_container = document.querySelector('#digit_container');
+const input = document.querySelector('#input');
+const output = document.createElement('p');
+input.appendChild(output);
+let expression;
 
 for(let i = 0; i <= 9; i++) {
     const button = document.createElement('button');
     button.textContent = i;
-    button.classList.add('button');
+    button.classList.add('digit');
     digit_container.appendChild(button);
+
+    button.addEventListener('click', () => {
+        if(expression === undefined || expression === null) {
+            expression = button.textContent;
+        } else {
+            expression += button.textContent;
+        }
+        output.innerText = expression;
+    });
 }
 
 const sign_container = document.querySelector('#sign_container');
-const signs = ['+', '-', 'x', '/', '='];
+const signs = ['+', '-', 'x', '/'];
+
 signs.forEach((sign) => {
     const button = document.createElement('button');
     button.textContent = sign;
-    button.classList.add('button');
+    button.classList.add('sign');
     sign_container.appendChild(button);
+
+    button.addEventListener('click', () => {
+        expression += (' ' + button.textContent + ' ');
+        output.innerText = expression;
+    });
 });
 
-function operate(a, b, sign) {
+const button = document.createElement('button');
+button.textContent = '=';
+button.classList.add('equals');
+sign_container.appendChild(button);
+
+button.addEventListener('click', () => {
+    const arr = expression.split(' ');
+    output.innerText = expression + ' = ' + operate(arr[0], arr[1], arr[2]);
+    expression = null;
+});
+
+function operate(a, sign, b) {
     let result;
 
     switch(sign) {
@@ -39,7 +65,7 @@ function operate(a, b, sign) {
         default: alert('Invalid input');
     }
 
-    console.log(result);
+    return result;
 }
 
 

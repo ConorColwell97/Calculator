@@ -15,6 +15,7 @@
     min-height: 400px;
     border: 2px solid black;
     border-radius: 10px;
+    background-color: #345F7E;
 }
 
 #input {
@@ -25,6 +26,7 @@
     min-height: 100px;
     border: 2px solid black;
     border-radius: 2px;
+    background-color: goldenrod;
 }
 
 #button_container {
@@ -59,24 +61,23 @@
     min-height: 112px;
 }
 
-.button {
+.digit, .sign, .equals {
     padding: 8px;
     max-width: 33px;
     max-height: 33px;
     min-width: 33px;
     min-height: 33px;
     margin-right: 2px;
-    background-color: #345F7E;
-    color: white;
+    background-color: white;
     border: 1px transparent;
     border-radius: 10px;
 }
 
-.button:hover {
+button:hover {
     opacity: 0.5;
 }
 
-.button:active {
+button:active {
     transform: translateY(4px);
 }
 
