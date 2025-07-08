@@ -12,7 +12,7 @@ for(let i = 0; i <= 9; i++) {
 }
 
 const sign_container = document.querySelector('#sign_container');
-const signs = ['+', '-', 'x', '/'];
+const signs = ['+', '-', 'x', '/', '='];
 signs.forEach((sign) => {
     const button = document.createElement('button');
     button.textContent = sign;
